@@ -33,4 +33,3 @@ Library
 
   ghc-options:
     -Wall
-    -Werror
