@@ -30,3 +30,7 @@ Library
     haskell98
     
   Hs-Source-Dirs: src
+
+  ghc-options:
+    -Wall
+    -Werror
