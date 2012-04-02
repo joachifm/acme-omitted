@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# GIT pre-commit hook
+
+reject() {
+    echo "commit rejected: $1"
+    exit 1
+}
+
+topdir=`git rev-parse --show-toplevel`
+cd "$topdir"
+
+ghc --make Setup.hs || reject "building Setup failed"
+./Setup configure -v0 -O0 --ghc-options="-Wall -Werror" || reject "configure failed"
+./Setup haddock -v0 || reject "haddock failed"
+./Setup build -v0 || reject "build failed"
