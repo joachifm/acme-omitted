@@ -1,5 +1,5 @@
 Name:                acme-omitted
-Version:             1.0.0.0
+Version:             1.0.1.0
 Synopsis:            Purely functional omitted content for Haskell
 Category:            Acme
 Stability:           stable
