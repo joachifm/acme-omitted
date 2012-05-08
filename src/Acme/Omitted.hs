@@ -19,4 +19,4 @@ module Acme.Omitted ((...)) where
 --
 -- This is sufficient to express _all_ types of omitted content
 (...) :: a
-(...) = undefined
+(...) = error "omitted"
