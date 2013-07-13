@@ -4,7 +4,9 @@ Synopsis:            Purely functional omitted content for Haskell
 Category:            Acme
 Stability:           stable
 Description:
-    Haskell has long lacked the ability to express the notion of \"omitted content\", making it impossible to differentiate between the truly \"undefined\" and the merely \"omitted\".
+    Haskell has long lacked the ability to express the notion of
+    \"omitted content\", making it impossible to differentiate
+    between the truly \"undefined\" and the merely \"omitted\".
     .
     acme-omitted introduces the universal omitted content operator, bringing sanity
     and order back into the world of Haskell.
@@ -25,10 +27,10 @@ Cabal-version:       >= 1.2
 
 Library
   Exposed-modules:     Acme.Omitted
-  
+
   Build-depends:
     haskell98
-    
+
   Hs-Source-Dirs: src
 
   ghc-options:
