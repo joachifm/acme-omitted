@@ -6,4 +6,4 @@ the merely "omitted".
 
 acme-omitted introduces the universal omitted content operator, bringing sanity
 and order back into the world of Haskell. It is standards-compliant,
-backwards-compatible, and user-friendly.
+backwards-compatible, type-safe, and user-friendly.
