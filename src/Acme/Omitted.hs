@@ -1,7 +1,7 @@
 {- |
 Module      : Acme.Omitted
 Description : The universal omitted content operator
-Copyright   : (c) 2012 Joachim Fasting
+Copyright   : (c) 2013 Joachim Fasting
 License     : BSD3
 
 Maintainer  : joachim.fasting@gmail.com
@@ -13,10 +13,20 @@ This makes it possible to differentiate between the truly \"undefined\"
 and the merely \"omitted\".
 -}
 
-module Acme.Omitted ((...)) where
+module Acme.Omitted ((...), omitted) where
+
+-- | Alternative syntax for 'omitted' that has been carefully
+-- optimised for programmer convenience and visual presentation
+-- (e.g., for use in printed documents).
+--
+-- Example usage:
+--
+--    > definition = (...)
+(...) :: a
+(...) = omitted
 
 -- | The universal omitted content operator.
 --
 -- This is sufficient to express _all_ types of omitted content
-(...) :: a
-(...) = error "omitted"
+omitted :: a
+omitted = error "omitted"
