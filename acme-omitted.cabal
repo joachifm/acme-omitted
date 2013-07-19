@@ -35,3 +35,13 @@ Library
 
   ghc-options:
     -Wall
+
+Test-Suite specs
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  Hs-Source-Dirs: src tests
+
+  Build-depends:
+      haskell98
+    , hspec
+    , hspec-discover
