@@ -29,7 +29,7 @@ Library
   Exposed-modules:     Acme.Omitted
 
   Build-depends:
-    haskell98
+    base >= 3.0.3 && < 5
 
   Hs-Source-Dirs: src
 
