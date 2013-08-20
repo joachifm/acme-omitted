@@ -18,12 +18,17 @@ License-file:        COPYING
 Author:              Joachim Fasting
 Maintainer:          joachim.fasting@gmail.com
 Copyright:           (c) 2013 Joachim Fasting
+Homepage:            https://github.com/joachifm/acme-omitted#readme
 
 Extra-source-files:
     README.markdown
 
 Build-type:          Simple
 Cabal-version:       >= 1.10
+
+Source-repository head
+  Type: git
+  location: git@github.com:joachifm/acme-omitted.git
 
 Library
   Default-language: Haskell2010
