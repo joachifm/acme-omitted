@@ -23,9 +23,11 @@ Extra-source-files:
     README.markdown
 
 Build-type:          Simple
-Cabal-version:       >= 1.2
+Cabal-version:       >= 1.10
 
 Library
+  Default-language: Haskell2010
+
   Exposed-modules:     Acme.Omitted
 
   Build-depends:
@@ -37,6 +39,7 @@ Library
     -Wall
 
 Test-Suite specs
+  default-language: Haskell2010
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   Hs-Source-Dirs: src tests
