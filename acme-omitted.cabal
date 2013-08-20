@@ -52,6 +52,6 @@ Test-Suite specs
   Hs-Source-Dirs: src tests
 
   Build-depends:
-      haskell98
+      base >= 3.0.3
     , hspec
     , hspec-discover
