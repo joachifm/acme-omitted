@@ -65,6 +65,10 @@ omitted = error "omitted"
 ------------------------------------------------------------------------
 -- $observing
 --
+-- The following definitions allow the user to discriminate undefined
+-- omitted values.
+-- Some caveats apply, however.
+--
 -- Though 'isUndefined' arguably could be a pure function (what is by
 -- definition undefinable shall always remain undefined), we feel it most
 -- appropriate to keep both 'isOmitted' and 'isUndefined' in 'IO', for
@@ -74,8 +78,9 @@ omitted = error "omitted"
 --
 -- Another reason to keep 'isUndefined' in 'IO' is the regrettable state of
 -- modern Haskell, which has forced programmers to use 'undefined' for all
--- sorts of purposes where 'omitted' should have been used instead, which
--- means that, currently, a pure 'isUndefined' would be deeply unsafe.
+-- sorts of purposes where 'omitted' should have been used instead.
+-- Thus it is unsound to assume that 'undefined' values will remain so, or
+-- indeed make any assumptions about it at all.
 --
 -- The confounding of \"undefined\" and \"omitted\" also means that,
 -- as it stands, 'isUndefined' will return bogus results for some uses of
@@ -84,6 +89,8 @@ omitted = error "omitted"
 -- that could be assumed to only represent values that are \"truly undefined\".
 -- For now, 'isUndefined' is provided as a convenience, but users are adviced to
 -- not rely on its results.
+-- Users are, however, encouraged to file bugs against libraries making unsound
+-- use of 'undefined'.
 
 -- | Answer the age-old question \"was this definition omitted?\"
 --
