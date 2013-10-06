@@ -12,15 +12,18 @@ spec = do
       omitted `shouldThrow` errorCall "omitted"
   describe "isOmitted" $ do
     it "isOmitted 0         = False" $ do
-      isOmitted 0 `shouldReturn` False
+      isOmitted zero `shouldReturn` False
     it "isOmitted undefined = False" $ do
       isOmitted undefined `shouldReturn` False
     it "isOmitted omitted   = True" $ do
       isOmitted omitted  `shouldReturn` True
   describe "isUndefined" $ do
     it "isUndefined 0         = False" $ do
-      isUndefined 0 `shouldReturn` False
+      isUndefined zero `shouldReturn` False
     it "isUndefined undefined = True" $ do
       isUndefined undefined `shouldReturn` True
     it "isUndefined omitted   = False" $ do
       isUndefined omitted  `shouldReturn` False
+
+zero :: Integer
+zero = 0
