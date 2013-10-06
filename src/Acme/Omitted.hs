@@ -15,6 +15,10 @@ truly \"undefined\".
 
 module Acme.Omitted
   (
+    -- * Usage
+    --
+    -- $usage
+
     -- * A universal definition of \"omitted content\"
     --
     -- $omitted
@@ -36,6 +40,36 @@ module Acme.Omitted
 
 import Prelude hiding (undefined)
 import qualified Control.Exception as E
+
+------------------------------------------------------------------------
+
+{-$usage
+
+This module provides an alternative implementation of
+\"Prelude.undefined\".
+To avoid name clashes with the "Prelude", use a qualified
+import or otherwise resolve the conflict.
+
+Use thus
+
+@
+module AwesomeSauce where
+
+import Prelude hiding (undefined)
+import Acme.Omitted
+
+tooLazyToDefine     = (...)
+
+actuallyUndefinable = undefined
+
+main = do
+  merelyOmitted <- 'isOmitted' tooLazyToDefine
+  putStrLn \"Definition was merely omitted\"
+  (...)
+  trulyUndefined <- 'isUndefined' actuallyUndefinable
+  putStrLn \"Definition is truly undefined\"
+@
+-}
 
 ------------------------------------------------------------------------
 -- $omitted
