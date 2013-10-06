@@ -65,7 +65,7 @@ omitted = error "omitted"
 ------------------------------------------------------------------------
 -- $observing
 --
--- The following definitions allow the user to discriminate undefined
+-- The following definitions allow the user to discriminate undefined from
 -- omitted values.
 -- Some caveats apply, however.
 --
