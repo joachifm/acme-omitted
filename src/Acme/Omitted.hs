@@ -31,6 +31,7 @@ module Acme.Omitted
     -- $observing
   , isOmitted
   , isUndefined
+  , isPreludeUndefined
   ) where
 
 import Prelude hiding (undefined)
@@ -108,20 +109,26 @@ undefined = error "Acme.Omitted.undefined"
 -- same value, i.e., bottom).
 --
 -- Another reason to keep 'isUndefined' in 'IO' is the regrettable state of
--- modern Haskell, which has forced programmers to use 'undefined' for all
--- sorts of purposes where 'omitted' should have been used instead.
--- Thus it is unsound to assume that 'undefined' values will remain so, or
--- indeed make any assumptions about it at all.
+-- modern Haskell, which has forced programmers to use "Prelude.undefined" for all
+-- sorts of purposes where something like 'omitted' should have been used instead.
+-- Thus it is unsound to assume that "Prelude.undefined" values will remain so, or
+-- indeed make any assumptions about them at all.
 --
--- The confounding of \"undefined\" and \"omitted\" also means that,
--- as it stands, 'isUndefined' will return bogus results for some uses of
--- 'undefined'.
--- A possible refinement is to provide an alternative to \"Prelude.undefined\"
--- that could be assumed to only represent values that are \"truly undefined\".
--- For now, 'isUndefined' is provided as a convenience, but users are adviced to
--- not rely on its results.
--- Users are, however, encouraged to file bugs against libraries making unsound
--- use of 'undefined'.
+-- Recent developments in the theory of representing undefined things have
+-- made it possible for programmers to more clearly state their intentions,
+-- by using our 'undefined' rather than the one from the Haskell 2010 "Prelude".
+-- There is, however, still no way to statically ensure that 'undefined' is used
+-- correctly.
+-- Consequently, 'isUndefined' will return bogus results every now and then.
+-- The primary benefit of our 'undefined' is that the user can, in principle,
+-- identify incorrect uses of 'undefined'.
+-- To wit, if
+--
+-- @
+-- isUndefined twoPlusTwo = return True
+-- @
+--
+-- then, surely, something is amiss.
 
 -- | Answer the age-old question \"was this definition omitted?\"
 --
@@ -130,6 +137,8 @@ undefined = error "Acme.Omitted.undefined"
 -- isOmitted undefined = return False
 -- isOmitted omitted   = return True
 -- @
+--
+-- Note that 'undefined' here does NOT refer to \"Prelude.undefined\".
 isOmitted :: a -> IO Bool
 isOmitted = isErrorCall "omitted"
 
@@ -140,8 +149,14 @@ isOmitted = isErrorCall "omitted"
 -- isUndefined omitted   = return False
 -- isUndefined undefined = return True
 -- @
+--
+-- Note that 'undefined' here does NOT refer to \"Prelude.undefined\".
 isUndefined :: a -> IO Bool
-isUndefined = isErrorCall "Prelude.undefined"
+isUndefined = isErrorCall "Acme.Omitted.undefined"
+
+-- | A version of 'isUndefined' for \"Prelude.undefined\".
+isPreludeUndefined :: a -> IO Bool
+isPreludeUndefined = isErrorCall "Prelude.undefined"
 
 isErrorCall :: String -> a -> IO Bool
 isErrorCall s x = (E.evaluate x >> return False)
