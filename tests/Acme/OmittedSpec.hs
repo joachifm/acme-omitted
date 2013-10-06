@@ -30,7 +30,7 @@ spec = do
       isUndefined Prelude.undefined `shouldReturn` False
   describe "isPreludeUndefined" $ do
     it "isPreludeUndefined 0         = False" $ do
-      isPreludeUndefined 0 `shouldReturn` False
+      isPreludeUndefined zero `shouldReturn` False
     it "isPreludeUndefined undefined = False" $ do
       isPreludeUndefined undefined `shouldReturn` False
     it "isPreludeUndefined omitted   = False" $ do
