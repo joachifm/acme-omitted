@@ -21,6 +21,11 @@ module Acme.Omitted
     omitted
   , (...)
 
+    -- * \"undefined\" redefined
+    --
+    -- $undefined
+  , undefined
+
     -- * Observing the difference between \"omitted\" and \"undefined\"
     --
     -- $observing
@@ -28,6 +33,7 @@ module Acme.Omitted
   , isUndefined
   ) where
 
+import Prelude hiding (undefined)
 import qualified Control.Exception as E
 
 ------------------------------------------------------------------------
@@ -61,6 +67,31 @@ import qualified Control.Exception as E
 -- This is sufficient to express _all_ types of omitted content
 omitted :: a
 omitted = error "omitted"
+
+------------------------------------------------------------------------
+-- $undefined
+--
+-- The undefined is that which cannot be named or expressed.
+-- As is plain, \"Prelude.undefined\" is deficient.
+-- Here is an alternative implementation of \"undefined\" with the
+-- appropriate connotations.
+--
+-- It is impossible to statically verify that a use of \"undefined\"
+-- is correct.
+-- Nevertheless, by using this version of 'undefined', the programmer
+-- explicitly communicates her intent to the reader (and the user).
+-- That is, if a user encounters a use of 'undefined', he will know that
+-- the definition he tried to evaluate, in fact, is undefinable.
+--
+-- Note, the operational semantics is equivalent to \"Prelude.undefined\".
+
+-- | Denotes all values that are, fundamentally, undefinable.
+--
+-- The implicit (as in not statically enforcable) contract of 'undefined'
+-- is that it will never be used for merely omitted definitions.
+-- For that, see 'omitted'.
+undefined :: a
+undefined = error "Acme.Omitted.undefined"
 
 ------------------------------------------------------------------------
 -- $observing
