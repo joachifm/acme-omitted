@@ -6,6 +6,7 @@ making it impossible to distinguish the truly "undefined" and the merely "omitte
 acme-omitted provides
 
 - a universal definition of "omitted"; and
-- functions to observe the difference between omitted and undefined.
+- an alternative to `Prelude.undefined`; and
+- functions to observe the difference
 
 The library is standards-compliant, type-safe, and user-friendly.
