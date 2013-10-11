@@ -65,7 +65,7 @@ main = do
   putStrLn \"Definition was merely omitted\"
   (...)
   trulyUndefined <- 'isUndefined' actuallyUndefinable
-  putStrLn \"Definition is truly undefined\"
+  putStrLn \"Definition is truly undefinable\"
 @
 -}
 
