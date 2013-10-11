@@ -103,19 +103,14 @@ omitted = error "omitted"
 
 {-$undefined
 
-The undefined is that which cannot be named or expressed.
-As is plain, \"Prelude.undefined\" is deficient.
-Here is an alternative implementation of \"undefined\" with the
-appropriate connotations.
-
-It is impossible to statically verify that a use of \"undefined\"
-is correct.
-Nevertheless, by using this version of 'undefined', the programmer
-explicitly communicates her intent to the reader (and the user).
-That is, if a user encounters a use of 'undefined', he will know that
-the definition he tried to evaluate, in fact, is undefinable.
-
-Note, the operational semantics is equivalent to \"Prelude.undefined\".
+Lacking a dedicated name for omitted defintions, users of Standard
+Haskell have been left with no choice but to use \"undefined\" for both
+the undefinable and the omitted.
+This makes the standard implementation of \"undefined\" deficient, we
+cannot be sure what the programmer has intended, only that the definition is
+missing.
+Here is an alternate implementation, similar in most every way to the
+standard implementation, but free from conceptual contamination.
 -}
 
 -- | Denotes all values that are, fundamentally, undefinable.
@@ -130,29 +125,17 @@ undefined = error "Acme.Omitted.undefined"
 
 The following definitions allow the user to discriminate undefined from
 omitted values.
-Some caveats apply, however.
-
-Though 'isUndefined' arguably could be a pure function (what is by
-definition undefinable shall always remain undefined), we feel it most
-appropriate to keep both 'isOmitted' and 'isUndefined' in 'IO', for
-reasons of symmetry and because the distinction between omitted and
-undefined is a 'GHC.Prim.RealWorld' concern (in the end, both denote the
-same value, i.e., bottom).
-
-Another reason to keep 'isUndefined' in 'IO' is the regrettable state of
-modern Haskell, which has forced programmers to use "Prelude.undefined" for all
-sorts of purposes where something like 'omitted' should have been used instead.
-Thus it is unsound to assume that "Prelude.undefined" values will remain so, or
-indeed make any assumptions about them at all.
 
 Recent developments in the theory of representing undefined things have
 made it possible for programmers to more clearly state their intentions,
 by using our 'undefined' rather than the one from the Haskell 2010 "Prelude".
 There is, however, still no way to statically ensure that 'undefined' is used
 correctly.
-Consequently, 'isUndefined' will return bogus results every now and then.
-The primary benefit of our 'undefined' is that the user can, in principle,
-identify incorrect uses of 'undefined'.
+Consequently, 'isUndefined' will return bogus results every now and then (which is why
+it is modelled as an 'IO' action and not a pure function).
+
+Nevertheless, the user can identify incorrect uses of 'undefined' more easily
+than before.
 To wit, if
 
 @
@@ -160,6 +143,17 @@ isUndefined twoPlusTwo = return True
 @
 
 then, surely, something is amiss.
+We know that the programmer has made the mistake of believing @2+2@ to be undefined,
+that she has not simply run out of time or gotten an important phone call while
+writing down the solution.
+
+For backwards-compatibility, we also support detecting use of the standard implementation
+of undefined.
+Note, however, that the standard "Prelude.undefined" is commonly used for all sorts of
+purposes where something like 'omitted' should have been used instead.
+It is unsound to assume that "Prelude.undefined" values will remain so, or indeed make any
+assumptions about them at all, except to note that their evaluation will terminate with no
+useful result.
 -}
 
 -- | Answer the age-old question \"was this definition omitted?\"
