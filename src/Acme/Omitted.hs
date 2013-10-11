@@ -1,4 +1,4 @@
-{- |
+{-|
 Module      : Acme.Omitted
 Description : A universal definition of omitted content
 Copyright   : (c) 2013 Joachim Fasting
