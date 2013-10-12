@@ -123,9 +123,6 @@ undefined = error "Acme.Omitted.undefined"
 
 {-$observing
 
-The following definitions allow the user to discriminate between undefined
-and omitted values.
-
 Recent developments in the theory of representing undefined things have
 made it possible for programmers to more clearly state their intentions,
 by using our 'undefined' rather than the one from the Haskell 2010 "Prelude".
@@ -147,13 +144,9 @@ We know that the programmer has made the mistake of believing @2+2@ to be undefi
 that she has not simply run out of time or gotten an important phone call while
 writing down the solution.
 
-For backwards-compatibility, we also support detecting use of the standard implementation
-of undefined.
-Note, however, that the standard "Prelude.undefined" is commonly used for all sorts of
-purposes where something like 'omitted' should have been used instead.
-It is unsound to assume that "Prelude.undefined" values will remain so, or indeed make any
-assumptions about them at all, except to note that their evaluation will terminate with no
-useful result.
+For backwards-compatibility, we also support detecting the standard
+implementation of undefined, about which we cannot infer anything
+except that its evaluation will terminate with no useful result.
 -}
 
 -- | Answer the age-old question \"was this definition omitted?\"
