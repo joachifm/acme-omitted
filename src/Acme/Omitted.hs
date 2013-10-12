@@ -159,24 +159,20 @@ useful result.
 -- | Answer the age-old question \"was this definition omitted?\"
 --
 -- @
--- isOmitted 0         = return False
--- isOmitted undefined = return False
--- isOmitted omitted   = return True
+-- isOmitted 0           = return False
+-- isOmitted 'undefined' = return False
+-- isOmitted 'omitted'   = return True
 -- @
---
--- Note that 'undefined' here does NOT refer to \"Prelude.undefined\".
 isOmitted :: a -> IO Bool
 isOmitted = isErrorCall "omitted"
 
 -- | ... or is it really 'undefined'?
 --
 -- @
--- isUndefined 0         = return False
--- isUndefined omitted   = return False
--- isUndefined undefined = return True
+-- isUndefined 0           = return False
+-- isUndefined 'undefined' = return True
+-- isUndefined 'omitted'   = return False
 -- @
---
--- Note that 'undefined' here does NOT refer to \"Prelude.undefined\".
 isUndefined :: a -> IO Bool
 isUndefined = isErrorCall "Acme.Omitted.undefined"
 
