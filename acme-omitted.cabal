@@ -4,13 +4,13 @@ Synopsis:            Purely functional omitted content for Haskell
 Category:            Acme
 Stability:           stable
 Description:
-    Standard Haskell lacks the ability to express the notion of \"omitted content\",
-    making it impossible to distinguish the truly \"undefined\" and the
-    merely \"omitted\".
+    Standard Haskell lacks the ability to express the notion of
+    \"omitted content\", making it impossible to distinguish the truly
+    \"undefined\" and the merely \"omitted\".
     .
-    acme-omitted implements a universal definition of \"omitted\" and provides
-    means of observing whether a definition has been omitted or if it is truly
-    undefined.
+    acme-omitted provides a universal definition of \"omitted\",
+    an alternative to 'Prelude.undefined', and functions to observe
+    the difference.
     .
     The library is standards-compliant, type-safe, and user-friendly.
 
