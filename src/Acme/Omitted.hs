@@ -8,9 +8,9 @@ Maintainer  : joachim.fasting@gmail.com
 Stability   : stable
 Portability : portable
 
-A universal definition of \"omitted content\" and methods
-for observing whether a definition is merely \"omitted\" or
-truly \"undefined\".
+A universal definition of \"omitted content\", an alternative to
+'Prelude.undefined', and methods for observing whether a definition is
+merely \"omitted\" or truly \"undefined\".
 -}
 
 module Acme.Omitted
