@@ -72,7 +72,7 @@ main = do
 {-$omitted
 
 The difference between \"omitted\" and \"undefined\" is that the
-programmer may choose to omit something but he cannot define the
+programmer may choose to omit something but she cannot define the
 undefinable.
 The former is contingent on the whims of the programmer, the latter
 a fundamental truth.
@@ -123,8 +123,8 @@ undefined = error "Acme.Omitted.undefined"
 
 {-$observing
 
-The following definitions allow the user to discriminate undefined from
-omitted values.
+The following definitions allow the user to discriminate between undefined
+and omitted values.
 
 Recent developments in the theory of representing undefined things have
 made it possible for programmers to more clearly state their intentions,
