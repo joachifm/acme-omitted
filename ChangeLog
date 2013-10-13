@@ -1,0 +1,5 @@
+acme-omitted 1.2.0.0, 2013-10-13
+	* Add an alternate implementation of `undefined`
+	* Add `isPreludeUndefined` (replaces the old `isUndefined`)
+acme-omitted 1.1.0.0, 2013-10-05
+	* Initial release

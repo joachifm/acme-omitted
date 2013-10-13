@@ -24,6 +24,7 @@ Homepage:            https://github.com/joachifm/acme-omitted#readme
 
 Extra-source-files:
     README.markdown
+  , ChangeLog
 
 Build-type:          Simple
 Cabal-version:       >= 1.10
