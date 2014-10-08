@@ -1,4 +1,4 @@
-# acme-omitted: purely functional omitted content for Haskell
+# acme-omitted: a name for omitted definitions
 
 acme-omitted provides
 
