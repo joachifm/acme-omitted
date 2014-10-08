@@ -1,6 +1,6 @@
 {-|
 Module      : Acme.Omitted
-Description : A universal definition of omitted content
+Description : A name for omitted definitions
 Copyright   : (c) 2013-2014 Joachim Fasting
 License     : BSD3
 
@@ -8,39 +8,17 @@ Maintainer  : joachifm@fastmail.fm
 Stability   : stable
 Portability : portable
 
-A definition of \"omitted content\", definitions that are not inherently
-undefinable, but currently not provided (for whatever reason).
+This module provides the means to indicate that a definition
+has been omitted (for whatever reason), as opposed to being
+inherently undefinable.
 -}
 
 module Acme.Omitted
   (
-    -- * Usage
-    --
-    -- $usage
-
-    -- * A universal definition of \"omitted content\"
-    --
-    -- $omitted
     omitted
   , (...)
 
   ) where
-
-{-$omitted
-
-The difference between \"omitted\" and \"undefined\" is that the
-programmer may choose to omit something but she cannot define the
-undefinable.
-The former is contingent on the whims of the programmer, the latter
-a fundamental truth.
-
-Operationally, there is no difference between undefined and omitted;
-attempting to evaluate either is treated as an error.
-
-Ideally, programmers would only ever use 'undefined' for things that
-are truly undefined, e.g., division by zero, and use 'omitted' for
-definitions that have yet to be written or that are currently not needed.
--}
 
 -- | Alternative syntax for 'omitted' that has been carefully
 -- optimised for programmer convenience and visual presentation
@@ -52,8 +30,6 @@ definitions that have yet to be written or that are currently not needed.
 (...) :: a
 (...) = omitted
 
--- | The universal omitted content indicator.
---
--- This is sufficient to express _all_ types of omitted content
+-- | Indicate that a definition has been omitted.
 omitted :: a
 omitted = error "Acme.Omitted.omitted"

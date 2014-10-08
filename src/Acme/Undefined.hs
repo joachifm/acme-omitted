@@ -1,12 +1,16 @@
 {-|
 Module      : Acme.Undefined
-Description : "Undefined" redefined
+Description : Undefined redefined
 Copyright   : (c) 2013-2014 Joachim Fasting
 License     : BSD3
 
 Maintainer  : joachifm@fastmail.fm
 Stability   : stable
 Portability : portable
+
+This module provides an alternative implementation of
+\"Prelude.undefined\", intended exclusively for denoting
+truly undefinable values.
 -}
 
 module Acme.Undefined (
@@ -30,13 +34,6 @@ import Prelude hiding (undefined)
 import qualified Control.Exception as E
 
 {-$usage
-This module provides an alternative implementation of
-\"Prelude.undefined\".
-To avoid name clashes with the "Prelude", use a qualified
-import or otherwise resolve the conflict.
-
-Use thus
-
 @
 module AwesomeSauce where
 
@@ -60,32 +57,29 @@ main = do
 {-$undefined
 
 Lacking a dedicated name for omitted defintions, users of Standard
-Haskell have been left with no choice but to use \"undefined\" for both
+Haskell are left with no choice but to use \"undefined\" for both
 the undefinable and the omitted.
 This makes the standard implementation of \"undefined\" deficient, we
 cannot be sure what the programmer has intended, only that the definition is
 missing.
-Here is an alternate implementation, similar in most every way to the
-standard implementation, but free from conceptual contamination.
+The following implementation of undefined is similar in every way to
+the standard implementation, but is free from conceptual contamination.
 -}
 
 -- | Denotes all values that are, fundamentally, undefinable.
 --
--- The implicit (as in not statically enforcable) contract of 'undefined'
--- is that it will never be used for merely omitted definitions.
--- For that, see 'omitted'.
+-- The contract of 'undefined' is that it will never be used for
+-- merely omitted definitions.
 undefined :: a
 undefined = error "Acme.Undefined.undefined"
 
 {-$observing
 
-Recent developments in the theory of representing undefined things have
-made it possible for programmers to more clearly state their intentions,
-by using our 'undefined' rather than the one from the Haskell 2010 "Prelude".
-There is, however, still no way to statically ensure that 'undefined' is used
-correctly.
-Consequently, 'isUndefined' will return bogus results every now and then (which is why
-it is modelled as an 'IO' action and not a pure function).
+Consistent use of 'undefined' and 'omitted' can clarify the intent of the
+programmer, but there is still no way to statically prevent incorrect
+uses of 'undefined' (e.g., due to ignorance).
+Consequently, 'isUndefined' will return bogus results every now and then,
+which is why it is modelled as an 'IO' action and not a pure function.
 
 Nevertheless, the user can identify incorrect uses of 'undefined' more easily
 than before.
@@ -101,8 +95,8 @@ that she has not simply run out of time or gotten an important phone call while
 writing down the solution.
 
 For backwards-compatibility, we also support detecting the standard
-implementation of undefined, about which we cannot infer anything
-except that its evaluation will terminate with no useful result.
+implementation of undefined, about which we cannot infer anything except
+that its evaluation will terminate with no useful result.
 -}
 
 -- | Answer the age-old question \"was this definition omitted?\"

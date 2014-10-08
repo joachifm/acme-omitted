@@ -1,18 +1,13 @@
 Name:                acme-omitted
 Version:             1.2.0.0
-Synopsis:            Purely functional omitted content for Haskell
+Synopsis:            A name for omitted definitions
 Category:            Acme
 Stability:           stable
 Description:
-    Standard Haskell lacks the ability to express the notion of
-    \"omitted content\", making it impossible to distinguish the truly
-    \"undefined\" and the merely \"omitted\".
-    .
-    acme-omitted provides a universal definition of \"omitted\",
-    an alternative to 'Prelude.undefined', and functions to observe
-    the difference.
-    .
-    The library is standards-compliant, type-safe, and user-friendly.
+  acme-omitted provides a way of indicating that a definition
+  has been \"omitted\" (though not inherently undefinable), an
+  alternative to \"Prelude.undefined\", and the means to observe
+  the difference.
 
 License:             BSD3
 License-file:        COPYING
