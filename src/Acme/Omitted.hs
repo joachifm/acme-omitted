@@ -56,4 +56,4 @@ definitions that have yet to be written or that are currently not needed.
 --
 -- This is sufficient to express _all_ types of omitted content
 omitted :: a
-omitted = error "omitted"
+omitted = error "Acme.Omitted.omitted"

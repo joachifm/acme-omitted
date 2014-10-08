@@ -113,7 +113,7 @@ except that its evaluation will terminate with no useful result.
 -- isOmitted 'omitted'   = return True
 -- @
 isOmitted :: a -> IO Bool
-isOmitted = isErrorCall "omitted"
+isOmitted = isErrorCall "Acme.Omitted.omitted"
 
 -- | ... or is it really 'undefined'?
 --
