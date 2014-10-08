@@ -95,7 +95,7 @@ definitions that have yet to be written or that are currently not needed.
 (...) :: a
 (...) = omitted
 
--- | The universal omitted content operator.
+-- | The universal omitted content indicator.
 --
 -- This is sufficient to express _all_ types of omitted content
 omitted :: a
