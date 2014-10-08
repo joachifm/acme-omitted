@@ -36,7 +36,8 @@ Source-repository head
 Library
   Default-language: Haskell2010
 
-  Exposed-modules:     Acme.Omitted
+  Exposed-modules:     Acme.Omitted,
+                       Acme.Undefined
 
   Build-depends:
     base >= 3.0.3 && < 5
