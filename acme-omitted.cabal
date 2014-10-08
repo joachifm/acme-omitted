@@ -31,7 +31,7 @@ Cabal-version:       >= 1.10
 
 Source-repository head
   Type: git
-  location: git@github.com:joachifm/acme-omitted.git
+  location: https://github.com/joachifm/acme-omitted.git
 
 Library
   Default-language: Haskell2010
