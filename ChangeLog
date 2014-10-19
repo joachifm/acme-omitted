@@ -1,3 +1,5 @@
+acme-omitted 2.0.0.0, 2014-10-20
+	* Factor out Acme.Undefined
 acme-omitted 1.2.0.0, 2013-10-13
 	* Add an alternate implementation of `undefined`
 	* Add `isPreludeUndefined` (replaces the old `isUndefined`)
