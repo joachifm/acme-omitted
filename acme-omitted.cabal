@@ -35,7 +35,7 @@ Library
                        Acme.Undefined
 
   Build-depends:
-    base >= 3.0.3 && < 5
+    base >=3 && <5
 
   Hs-Source-Dirs: src
 
@@ -49,6 +49,5 @@ Test-Suite specs
   Hs-Source-Dirs: src tests
 
   Build-depends:
-      base >= 3.0.3
-    , hspec
-    , hspec-discover
+      base >=3 && <5
+    , hspec >=1.8.1
