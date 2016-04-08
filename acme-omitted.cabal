@@ -32,7 +32,10 @@ Library
   Default-language: Haskell2010
 
   Exposed-modules:     Acme.Omitted,
-                       Acme.Undefined
+                       Acme.Undefined,
+                       Acme.OmittedOrUndefined
+
+  Other-modules:       Acme.OmittedOrUndefined.Internal
 
   Build-depends:
     base >=3 && <5
