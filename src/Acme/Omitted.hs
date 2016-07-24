@@ -20,13 +20,15 @@ module Acme.Omitted
 
   ) where
 
--- | Alternative syntax for 'omitted' that has been carefully
--- optimised for programmer convenience and visual presentation
--- (e.g., for use in printed documents).
---
--- Example usage:
---
---    > definition = (...)
+{-|
+Alternative syntax for 'omitted' that has been carefully optimised for
+programmer convenience and visual presentation (e.g., for use in printed
+documents).
+
+Example usage:
+
+  > definition = (...)
+-}
 (...) :: a
 (...) = omitted
 
