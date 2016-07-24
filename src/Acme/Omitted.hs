@@ -7,10 +7,6 @@ License     : BSD3
 Maintainer  : joachifm@fastmail.fm
 Stability   : stable
 Portability : portable
-
-This module provides the means to indicate that a definition
-has been omitted (for whatever reason), as opposed to being
-inherently undefinable.
 -}
 
 module Acme.Omitted
