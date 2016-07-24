@@ -1,7 +1,7 @@
 {-|
 Module      : Acme.Undefined
 Description : Undefined redefined
-Copyright   : (c) 2013-2014 Joachim Fasting
+Copyright   : (c) 2013-2016 Joachim Fasting
 License     : BSD3
 
 Maintainer  : joachifm@fastmail.fm
