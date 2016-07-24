@@ -1,6 +1,7 @@
 module Acme.OmittedOrUndefinedSpec where
 
 import Acme.OmittedOrUndefined
+import Acme.Omitted
 import Acme.Undefined
 
 import Prelude hiding (undefined)
