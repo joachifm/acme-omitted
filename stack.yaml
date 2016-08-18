@@ -1,0 +1,8 @@
+# For more information, see: http://docs.haskellstack.org/en/stable/yaml_configuration/
+
+resolver: lts-6.9
+
+packages:
+- '.'
+
+system-ghc: true
