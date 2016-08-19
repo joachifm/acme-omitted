@@ -1,4 +1,4 @@
-acme-omitted 3.0.0.0, 2016-07-24
+acme-omitted 3.0.0.0, 2016-08-19
 	* Factor out Acme.OmittedOrUndefined
 acme-omitted 2.0.0.0, 2014-10-20
 	* Factor out Acme.Undefined
